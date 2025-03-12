@@ -1,123 +1,124 @@
-# Secure Vault – Alle Vorgänge in einer Datei
+# Secure Vault – All Processes in a Single File
 
-Dieses Repository enthält eine vollständig integrierte Anwendung, die alle Funktionen – von der Passwortverwaltung über Notizen und Kreditkartenverwaltung bis hin zu Sicherheitsfeatures wie Zwei-Faktor-Authentifizierung, automatischer Sperrung und Backups – in einer einzigen Python-Datei zusammenfasst. Die Anwendung wurde mit PyQt6 als GUI-Framework entwickelt und verwendet moderne Kryptografie-Methoden, um alle sensiblen Daten zu schützen.
+This repository contains a fully integrated application that combines all functions – from password management, note taking, and credit/debit card management to security features such as two-factor authentication, automatic locking, and backups – into a single Python file. The application is developed using PyQt6 as the GUI framework and employs modern cryptographic methods to protect all sensitive data.
 
-## Inhaltsverzeichnis
+## Table of Contents
 
-- [Überblick](#überblick)
-- [Hauptfunktionen und Abläufe](#hauptfunktionen-und-abläufe)
-  - [Ressourcen- und Datenverzeichnis](#ressourcen--und-datenverzeichnis)
-  - [Benutzeroberfläche und Widgets](#benutzeroberfläche-und-widgets)
-  - [Passwortverwaltung](#passwortverwaltung)
-  - [Notizenverwaltung](#notizenverwaltung)
-  - [Kredit-/Debitkartenverwaltung](#kreditdebitkartenverwaltung)
-  - [Zwei-Faktor-Authentifizierung (2FA)](#zwei-faktor-authentifizierung-2fa)
-  - [Automatische Sperrung](#automatische-sperrung)
-  - [Backup und Wiederherstellung](#backup-und-wiederherstellung)
-- [Installation und Nutzung](#installation-und-nutzung)
-- [Beitragende](#beitragende)
-- [Lizenz](#lizenz)
+- [Overview](#overview)
+- [Main Features and Workflows](#main-features-and-workflows)
+  - [Resource and Data Directories](#resource-and-data-directories)
+  - [User Interface and Widgets](#user-interface-and-widgets)
+  - [Password Management](#password-management)
+  - [Note Management](#note-management)
+  - [Credit/Debit Card Management](#creditdebit-card-management)
+  - [Two-Factor Authentication (2FA)](#two-factor-authentication-2fa)
+  - [Automatic Locking](#automatic-locking)
+  - [Backup and Restoration](#backup-and-restoration)
+- [Installation and Usage](#installation-and-usage)
+- [Contributors](#contributors)
+- [License](#license)
 
-## Überblick
+## Overview
 
-**Secure Vault** ist ein multifunktionaler, sicherheitsfokussierter Passwortmanager. Die Anwendung bietet:
+**Secure Vault** is a multifunctional, security-focused password manager. The application provides:
 
-- **Passwortverwaltung:** Erstellen, Anzeigen, Bearbeiten und Löschen von Passwort-Einträgen.
-- **Notizenverwaltung:** Sicheres Speichern und Verwalten persönlicher Notizen.
-- **Kartenverwaltung:** Verwalten von Kredit- und Debitkartendaten inklusive einer ansprechenden Darstellung.
-- **Datenverschlüsselung:** Alle sensiblen Daten werden mit Fernet (unter Verwendung von PBKDF2HMAC zur Schlüsselableitung) verschlüsselt.
-- **Zwei-Faktor-Authentifizierung:** Optionale 2FA mit TOTP (via PyOTP) und QR-Code-Generierung.
-- **Automatische Sperrung:** Die Anwendung sperrt sich nach einer festgelegten Inaktivitätszeit automatisch.
-- **Backup & Wiederherstellung:** Möglichkeit, alle Daten als verschlüsseltes Backup zu exportieren und wiederherzustellen.
-- **Theming:** Unterstützung von Dark- und Light-Themes für eine individuelle Benutzeroberfläche.
+- **Password Management:** Create, view, edit, and delete password entries.
+- **Note Management:** Securely store and manage personal notes.
+- **Card Management:** Manage credit and debit card information with an attractive visual display.
+- **Data Encryption:** All sensitive data is encrypted using Fernet (with PBKDF2HMAC for key derivation).
+- **Two-Factor Authentication:** Optional 2FA with TOTP (via PyOTP) and QR code generation.
+- **Automatic Locking:** The application automatically locks after a set period of inactivity.
+- **Backup & Restoration:** Export all data as an encrypted backup and restore it when needed.
+- **Theming:** Supports dark and light themes for a personalized user interface.
 
-## Hauptfunktionen und Abläufe
+## Main Features and Workflows
 
-Alle Vorgänge sind in einer einzigen Python-Datei integriert. Im Folgenden werden die wesentlichen Prozesse erläutert:
+All processes are integrated into a single Python file. Below is an explanation of the key functionalities:
 
-### Ressourcen- und Datenverzeichnis
+### Resource and Data Directories
 
-- **Ressourcenpfad:**  
-  Die Funktion `resource_path(relative_path)` sorgt dafür, dass alle benötigten Ressourcen (z. B. Themes, Icons) auch nach der Kompilierung mit PyInstaller gefunden werden.
-- **Datenverzeichnis:**  
-  Mithilfe von `appdirs.user_data_dir` wird ein plattformübergreifendes Verzeichnis erstellt, in dem Konfigurationen, verschlüsselte Passwörter, Notizen und Kartendaten abgelegt werden.
+- **Resource Path:**  
+  The function `resource_path(relative_path)` ensures that all required resources (e.g., themes, icons) can be located even after packaging with PyInstaller.
+- **Data Directory:**  
+  Using `appdirs.user_data_dir`, a cross-platform directory is created to store configurations, encrypted passwords, notes, and card data.
 
-### Benutzeroberfläche und Widgets
+### User Interface and Widgets
 
-- **Moderne UI-Komponenten:**  
-  Custom Widgets wie `ModernButton`, `ModernLineEdit` und `ModernLabel` sorgen für ein einheitliches und modernes Design.
-- **Kreditkarten-Widget:**  
-  Das `CreditCardWidget` visualisiert Kredit- bzw. Debitkartendaten in einem ansprechenden Layout.
+- **Modern UI Components:**  
+  Custom widgets like `ModernButton`, `ModernLineEdit`, and `ModernLabel` provide a consistent and modern design.
+- **Credit Card Widget:**  
+  The `CreditCardWidget` visually displays credit/debit card information in an appealing layout.
 
-### Passwortverwaltung
+### Password Management
 
-- **Erstellung und Speicherung:**  
-  Neue Passwörter werden zusammen mit einem Titel und Benutzernamen als verschlüsselte JSON-Daten gespeichert.  
-  - **Verschlüsselung:** Die gesamte Passwortdatenbank wird mit Fernet verschlüsselt.
-- **Anzeige und Bearbeitung:**  
-  Gespeicherte Passwörter werden in einem QTreeWidget dargestellt. Einträge können angesehen, bearbeitet oder gelöscht werden.
-- **Passwort-Generator:**  
-  Die Funktion `generate_password()` erstellt ein sicheres, zufälliges Passwort aus einem festgelegten Zeichenvorrat.
+- **Creation and Storage:**  
+  New passwords are saved as encrypted JSON data along with a title and username.  
+  - **Encryption:** The entire password database is encrypted using Fernet.
+- **Display and Editing:**  
+  Saved passwords are displayed in a QTreeWidget, and individual entries can be viewed, edited, or deleted.
+- **Password Generator:**  
+  The function `generate_password()` creates a secure, random password from a predefined character set.
 
-### Notizenverwaltung
+### Note Management
 
-- **Erstellung:**  
-  Über einen Dialog können neue Notizen (mit Titel und Inhalt) angelegt und gespeichert werden.
-- **Bearbeitung und Löschung:**  
-  Notizen werden ähnlich wie Passwörter in einem QTreeWidget dargestellt, wobei Bearbeitung und Löschung möglich sind.
-- **Verschlüsselung:**  
-  Auch Notizen werden mit Fernet verschlüsselt abgelegt.
+- **Creation:**  
+  New notes (with title and content) can be created and saved via a dialog.
+- **Editing and Deletion:**  
+  Notes are listed in a QTreeWidget similar to passwords, allowing for editing or deletion.
+- **Encryption:**  
+  Notes are also stored in an encrypted format using Fernet.
 
-### Kredit-/Debitkartenverwaltung
+### Credit/Debit Card Management
 
-- **Karten hinzufügen:**  
-  Über einen Dialog können Kartendaten (z. B. Karteninhaber, Kartennummer, Ablaufdatum, CVV) eingegeben werden.
-- **Visualisierung:**  
-  Das `CreditCardWidget` stellt die Kartendaten visuell ansprechend dar; die Kartennummer wird teilweise maskiert.
-- **Sicherheit:**  
-  Alle Kartendaten werden verschlüsselt gespeichert.
+- **Adding Cards:**  
+  Card details (e.g., cardholder name, card number, expiry date, CVV) can be entered through a dialog.
+- **Visualization:**  
+  The `CreditCardWidget` presents the card information attractively; the card number is partially masked.
+- **Security:**  
+  All card data is stored in encrypted form.
 
-### Zwei-Faktor-Authentifizierung (2FA)
+### Two-Factor Authentication (2FA)
 
 - **Setup:**  
-  Nach der Einrichtung des Master-Passworts kann der Nutzer optional 2FA aktivieren. Dabei wird ein geheimer Schlüssel generiert, ein QR-Code erstellt und der Schlüssel auch manuell angezeigt.
-- **Verifizierung:**  
-  Beim Login wird – sofern 2FA aktiviert ist – zusätzlich ein TOTP-Code abgefragt, der verifiziert werden muss, bevor der Zugriff gewährt wird.
+  After setting up the master password, the user can optionally enable 2FA. A secret key is generated, a QR code is created, and the key is also displayed for manual entry.
+- **Verification:**  
+  When logging in, if 2FA is enabled, a TOTP code is required in addition to the master password for access.
 
-### Automatische Sperrung
+### Automatic Locking
 
-- **Inaktivitäts-Timeout:**  
-  Mithilfe eines `QTimer` wird die Anwendung nach einer definierten Inaktivitätsperiode automatisch gesperrt.
-- **Event-Filter:**  
-  Maus- und Tastatureingaben setzen den Timer zurück, um eine ungewollte Sperrung zu verhindern.
+- **Inactivity Timeout:**  
+  A `QTimer` is used to automatically lock the application after a defined period of inactivity.
+- **Event Filtering:**  
+  Mouse and keyboard events reset the timer to prevent accidental locking.
 
-### Backup und Wiederherstellung
+### Backup and Restoration
 
-- **Backup-Erstellung:**  
-  Alle Daten (Passwörter, Notizen, Karten) werden in einem kombinierten JSON-Dokument zusammengeführt, verschlüsselt und in einer Backup-Datei gespeichert.
-- **Wiederherstellung:**  
-  Über einen Datei-Dialog kann ein Backup ausgewählt, entschlüsselt und in die Anwendung importiert werden.
+- **Backup Creation:**  
+  All data (passwords, notes, cards) is merged into a combined JSON document, encrypted, and saved as a backup file.
+- **Restoration:**  
+  A file dialog allows the user to select a backup, decrypt it, and import the data into the application.
 
-## Installation und Nutzung
+## Installation and Usage
 
-1. **Repository klonen:**
+1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/deinbenutzername/securevault.git
+   git clone https://github.com/yourusername/securevault.git
    cd securevault
-   
-2. **Virtuelle Umgebung erstellen:**
+
+2. **Create a Virtual Environment:**
 
    ```bash
    python -m venv venv
-   source venv/bin/activate  # Auf Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-3. **Abhängigkeiten installieren:**
+3. **Install Dependencies:**
 
    ```bash
    pip install -r requirements.txt
 
-4. **Anwendung starten:**
+4. **Start the Application:**
 
    ```bash
-   python SecureVault.py
+   python SecureVault.py or use the .exe in the folder.
+

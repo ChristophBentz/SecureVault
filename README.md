@@ -101,7 +101,7 @@ All processes are integrated into a single Python file. Below is an explanation 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/securevault.git
+   git clone https://github.com/ChristophBentz/SecureVault.git
    cd securevault
 
 2. **Create a Virtual Environment:**

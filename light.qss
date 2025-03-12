@@ -1,0 +1,396 @@
+/* Globaler Stil */
+QWidget {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-size: 10pt;
+    color: #2B2B2B;
+    background-color: #F5F5F5;
+}
+
+/* Hauptfenster */
+QMainWindow {
+    background-color: #F5F5F5;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: #E0E0E0;
+    border-right: 1px solid #CCCCCC;
+}
+
+/* Content Area */
+#contentArea {
+    background-color: #F5F5F5;
+}
+
+/* Glass Container – moderner, kantiger Look */
+#glassContainer {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+}
+
+/* Formular- und Info-Container */
+#formContainer, #infoContainer {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+}
+
+/* Passwort-Dialog */
+#passwordDialog {
+    background-color: #F5F5F5;
+    border-radius: 6px;
+}
+
+/* Primäre Buttons – moderner Teal-Akzent */
+QPushButton {
+    background-color: #00897B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    min-width: 120px;
+}
+QPushButton:hover {
+    background-color: #009688;
+}
+QPushButton:pressed {
+    background-color: #00796B;
+}
+QPushButton:disabled {
+    background-color: #CCCCCC;
+    color: #888888;
+}
+
+/* Sekundäre Buttons */
+QPushButton#secondaryButton {
+    background-color: #E0E0E0;
+    color: #2B2B2B;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 10px 20px;
+}
+QPushButton#secondaryButton:hover {
+    background-color: #D6D6D6;
+}
+QPushButton#secondaryButton:pressed {
+    background-color: #C0C0C0;
+}
+
+/* Navigations-Buttons */
+QPushButton#navButton {
+    background-color: transparent;
+    color: #2B2B2B;
+    text-align: left;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: normal;
+}
+QPushButton#navButton:hover {
+    background-color: #00897B;
+    color: #FFFFFF;
+}
+QPushButton#navButton:checked {
+    background-color: #00897B;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Logout Button */
+QPushButton#logoutButton {
+    background-color: transparent;
+    color: #2B2B2B;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 10px 20px;
+}
+QPushButton#logoutButton:hover {
+    background-color: #FF7043;
+    border-color: #FF5722;
+    color: #FFFFFF;
+}
+
+/* Danger Button – Alle „Löschen“-Buttons */
+QPushButton#dangerButton {
+    background-color: #D32F2F;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+}
+QPushButton#dangerButton:hover {
+    background-color: #E53935;
+}
+QPushButton#dangerButton:pressed {
+    background-color: #C62828;
+}
+
+/* Eingabefelder */
+QLineEdit {
+    background-color: #FFFFFF;
+    color: #2B2B2B;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 8px 12px;
+    min-width: 250px;
+}
+QLineEdit:focus {
+    border: 1px solid #00897B;
+}
+QLineEdit:disabled {
+    background-color: #EEEEEE;
+    color: #888888;
+}
+
+/* Notizen – QTextEdit / PlainTextEdit */
+QTextEdit, QPlainTextEdit {
+    background-color: #FFFFFF;
+    color: #2B2B2B;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 8px 12px;
+    min-width: 250px;
+    min-height: 100px;
+}
+QTextEdit:focus, QPlainTextEdit:focus {
+    border: 1px solid #00897B;
+}
+
+/* Labels */
+QLabel {
+    color: #2B2B2B;
+    background-color: transparent;
+}
+
+/* Titel-Labels */
+QLabel#titleLabel {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #2B2B2B;
+    background-color: transparent;
+}
+
+/* Modern TreeWidget – mit Margin, Padding, abgerundeten Ecken */
+QTreeWidget {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    margin: 8px 20px 0px 0px;
+    padding: 8px;
+    spacing: 0;
+}
+
+/* Einzelne Zeilen */
+QTreeWidget::item {
+    background-color: #F7F7F7;
+    margin: 8px 20px 0px 0px;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/* Hover-Effekt */
+QTreeWidget::item:hover {
+    background-color: #B2DFDB;
+    color: #2B2B2B;
+    border-radius: 8px;
+}
+
+/* Ausgewählt */
+QTreeWidget::item:selected {
+    background-color: #B2DFDB;
+    color: #2B2B2B;
+    border-radius: 8px;
+}
+
+/* Tabellenkopf */
+QHeaderView::section {
+    background-color: #E0E0E0;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 8px 8px 20px;
+    color: #2B2B2B;
+    font-weight: bold;
+    margin: 8px 20px 0px 0px;
+}
+
+/* Links die obere Ecke abrunden (erste Spalte) */
+QHeaderView::section:horizontal:first {
+    border-top-left-radius: 8px;
+}
+
+/* Rechts die obere Ecke abrunden (letzte Spalte) */
+QHeaderView::section:horizontal:last {
+    border-top-right-radius: 8px;
+}
+
+/* Tabs */
+QTabWidget::pane {
+    background-color: #E0E0E0;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+}
+QTabBar::tab {
+    background-color: #FFFFFF;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 10px 20px;
+    margin-right: 2px;
+}
+QTabBar::tab:selected {
+    background-color: #F5F5F5;
+    border: 1px solid #CCCCCC;
+    border-bottom-color: #F5F5F5;
+}
+QTabBar::tab:hover:!selected {
+    background-color: #DDDDDD;
+}
+
+/* Checkboxen – Hintergrund transparent */
+QCheckBox {
+    background-color: transparent;
+    spacing: 8px;
+    color: #2B2B2B;
+}
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+}
+QCheckBox::indicator:checked {
+    background-color: #00897B;
+    border: 1px solid #00897B;
+}
+
+/* Scrollbars – Vertikal */
+QScrollBar:vertical {
+    background-color: #E0E0E0;
+    width: 10px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background-color: #CCCCCC;
+    border-radius: 6px;
+    min-height: 20px;
+}
+QScrollBar::handle:vertical:hover {
+    background-color: #00897B;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+/* Scrollbars – Horizontal */
+QScrollBar:horizontal {
+    background-color: #E0E0E0;
+    height: 10px;
+    margin: 0px;
+}
+QScrollBar::handle:horizontal {
+    background-color: #CCCCCC;
+    border-radius: 6px;
+    min-width: 20px;
+}
+QScrollBar::handle:horizontal:hover {
+    background-color: #00897B;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* Tooltip */
+QToolTip {
+    background-color: #FFFFFF;
+    color: #2B2B2B;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+/* Message Box */
+QMessageBox {
+    background-color: #FFFFFF;
+}
+QMessageBox QLabel {
+    background-color: transparent;
+}
+QMessageBox QPushButton {
+    min-width: 80px;
+    min-height: 30px;
+}
+
+/* Input Dialog */
+QInputDialog {
+    background-color: #FFFFFF;
+}
+QInputDialog QLabel {
+    background-color: transparent;
+}
+QInputDialog QLineEdit {
+    min-width: 250px;
+}
+
+/* Form Layout */
+QFormLayout {
+    background-color: transparent;
+}
+
+/* Widgets in Formularen */
+QWidget#formWidget QLabel, 
+QWidget#infoWidget QLabel,
+QStackedWidget QLabel,
+QDialog QLabel {
+    background-color: transparent;
+}
+
+/* Vertikale Zentrierung in Formularen */
+QFormLayout QLabel {
+    qproperty-alignment: 'AlignVCenter';
+}
+
+/* Spezifische Regeln für besondere Buttons */
+QPushButton#twoFactorButton {
+    min-width: 300px;
+}
+QPushButton#entsperren {
+    min-width: 300px;
+}
+
+/* Passwortanzeige & Kopieren */
+QLineEdit#passwordField {
+    letter-spacing: 1px;
+}
+QCheckBox#showPasswordCheckbox {
+    background-color: transparent;
+    spacing: 8px;
+    font-size: 10pt;
+}
+QCheckBox#showPasswordCheckbox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    background-color: #FFFFFF;
+}
+QCheckBox#showPasswordCheckbox::indicator:checked {
+    background-color: #00897B;
+    border: 1px solid #00897B;
+}
+
+QPushButton#copyButton {
+    background-color: #00897B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    min-width: 100px;
+}
+QPushButton#copyButton:hover {
+    background-color: #009688;
+}
+QPushButton#copyButton:pressed {
+    background-color: #00796B;
+}

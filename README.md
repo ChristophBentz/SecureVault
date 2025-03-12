@@ -15,8 +15,6 @@ This repository contains a fully integrated application that combines all functi
   - [Automatic Locking](#automatic-locking)
   - [Backup and Restoration](#backup-and-restoration)
 - [Installation and Usage](#installation-and-usage)
-- [Contributors](#contributors)
-- [License](#license)
 
 ## Overview
 

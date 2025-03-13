@@ -95,28 +95,3 @@ All processes are integrated into a single Python file. Below is an explanation 
   All data (passwords, notes, cards) is merged into a combined JSON document, encrypted, and saved as a backup file.
 - **Restoration:**  
   A file dialog allows the user to select a backup, decrypt it, and import the data into the application.
-
-## Installation and Usage
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/ChristophBentz/SecureVault.git
-   cd securevault
-
-2. **Create a Virtual Environment:**
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-3. **Install Dependencies:**
-
-   ```bash
-   pip install -r requirements.txt
-
-4. **Start the Application:**
-
-   ```bash
-   python SecureVault.py or use the .exe in the folder.
-
